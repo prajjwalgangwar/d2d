@@ -31,8 +31,6 @@ class CategoriesState extends State<Categories>{
           CategoryCard(context),
           CategoryCard(context),
           CategoryCard(context),
-
-
         ],
       )
     );

@@ -1,5 +1,4 @@
 import 'dart:js';
-
 import 'package:d2d/HomePage/Home.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -9,6 +8,7 @@ Widget CategoriesAppBar(Context) {
     // bottom: ,
     backgroundColor: Colors.grey[900],
     title: Container(
+      alignment: Alignment.centerLeft,
       child: Text(
         "Categories",
         style: TextStyle(

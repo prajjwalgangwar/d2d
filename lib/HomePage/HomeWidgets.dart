@@ -1,5 +1,5 @@
 import 'package:d2d/Categories/Categories.dart';
-import 'package:d2d/utilities/Constants.dart';
+import 'package:d2d/utilities/StringConstants.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -15,7 +15,7 @@ Widget homeAppBar(Context) {
           child: Container(
             margin: new EdgeInsets.only(top: 10),
             child: Text(
-              Constants().homeAppBarTitle,
+              StringConstants.homeAppBarTitle,
               style: TextStyle(
                 color: Colors.white,
                 // height: 20,
@@ -28,7 +28,7 @@ Widget homeAppBar(Context) {
         Padding(
           padding: const EdgeInsets.only(top: 5),
           child: Text(
-            Constants().homeAppBarSubTitle,
+            StringConstants.homeAppBarSubTitle,
             style: TextStyle(
               fontSize: 8,
               color: Colors.white54,
@@ -43,7 +43,9 @@ Widget homeAppBar(Context) {
         splashColor: Colors.blueGrey,
         colorBrightness: Brightness.light,
         color: Colors.grey[900],
-        onPressed: () {},
+        onPressed: () {
+          Navigator.push(Context, MaterialPageRoute(builder: (Context)=>NavigationDrawer(Context)));
+        },
         child: Icon(
           Icons.menu_rounded,
           color: Colors.white,
@@ -78,19 +80,19 @@ Widget bottomAppBarHome(context){
             Flexible(
               flex: 2,
               child:Container(
-                  height: 35,
-                  margin: new EdgeInsets.only(bottom: 1, right: 2, left: 5),
-                  decoration: BoxDecoration(
+                height: 35,
+                margin: new EdgeInsets.only(bottom: 1, right: 2, left: 5),
+                decoration: BoxDecoration(
                     color: Colors.white70,
                     borderRadius: BorderRadius.circular(3),
                     border: Border.all(
                         color: Colors.white12
                     ),
                   ),
+                child: InkWell(
+                  splashColor: Colors.red,
+                  onTap: (){},
                   child: Center(
-                    child: FlatButton(
-                      splashColor: Colors.amber[50],
-
                       child: Text(
                         "Stores",
                         style: TextStyle(
@@ -101,27 +103,28 @@ Widget bottomAppBarHome(context){
                         ),
                       ),
                     ),
-                  ),
                 ),
               ),
+              ),// Stores Card
 
             Flexible(
               flex: 5,
               child: Container(
-                  height: 35,
-                  margin: new EdgeInsets.only(bottom: 1,right: 5,left: 5),
-                  decoration: BoxDecoration(
+                height: 35,
+                margin: new EdgeInsets.only(bottom: 1,right: 5,left: 5),
+                decoration: BoxDecoration(
                     color: Colors.white70,
                     borderRadius: BorderRadius.circular(3),
                     border: Border.all(
                         color: Colors.white12
                     ),
                   ),
+                child: InkWell(
+                  splashColor: Colors.red,
+                  onTap: (){
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=>Categories()));
+                  },
                   child: Center(
-                    child: FlatButton(
-                      onPressed: (){
-                        Navigator.push(context, MaterialPageRoute(builder: (context)=>Categories()));
-                      },
                       child: Text(
                         "Search Bar Area",
                         style: TextStyle(
@@ -132,9 +135,9 @@ Widget bottomAppBarHome(context){
                         ),
                       ),
                     ),
-                  ),
                 ),
               ),
+              ),// Search Bar Area
           ],
         ),
       ),
@@ -147,3 +150,25 @@ Widget storesList(){
   return null;
 }
 
+
+Widget NavigationDrawer(Context){
+    return Drawer(
+      child: ListView(
+        padding: EdgeInsets.zero,
+        children: [
+          DrawerHeader(
+            child: Text('Drawer Header'),
+            decoration: BoxDecoration(
+              color: Colors.blue,
+            ),
+          ),
+          ListTile(
+            title: Text('Item 1'),
+            onTap: () {
+              Navigator.pop(Context);
+            },
+          ),
+        ],
+      ),
+    );
+  }
