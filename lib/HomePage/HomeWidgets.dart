@@ -1,3 +1,5 @@
+import 'package:d2d/Categories/Categories.dart';
+import 'package:d2d/utilities/Constants.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -13,7 +15,7 @@ Widget homeAppBar(Context) {
           child: Container(
             margin: new EdgeInsets.only(top: 10),
             child: Text(
-              "D2D",
+              Constants().homeAppBarTitle,
               style: TextStyle(
                 color: Colors.white,
                 // height: 20,
@@ -26,7 +28,7 @@ Widget homeAppBar(Context) {
         Padding(
           padding: const EdgeInsets.only(top: 5),
           child: Text(
-            "हर दरवाजे तक",
+            Constants().homeAppBarSubTitle,
             style: TextStyle(
               fontSize: 8,
               color: Colors.white54,
@@ -63,69 +65,85 @@ Widget homeAppBar(Context) {
         ),
       ),
     ],
-
   );
 }
 
 Widget bottomAppBarHome(context){
   return PreferredSize(
-      child: Container(
-        child: ListTile(
-          tileColor: Colors.grey[900],
-          leading: Container(
-            margin: new EdgeInsets.only(bottom: 15),
-            decoration: BoxDecoration(
-              color: Colors.white70,
-              borderRadius: BorderRadius.circular(3),
-              border: Border.all(
-                  color: Colors.white12
-              ),
-            ),
+      child: SizedBox(
+        height: 50,
+        child: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Flexible(
+              flex: 2,
+              child:Container(
+                  height: 35,
+                  margin: new EdgeInsets.only(bottom: 1, right: 2, left: 5),
+                  decoration: BoxDecoration(
+                    color: Colors.white70,
+                    borderRadius: BorderRadius.circular(3),
+                    border: Border.all(
+                        color: Colors.white12
+                    ),
+                  ),
+                  child: Center(
+                    child: FlatButton(
+                      splashColor: Colors.amber[50],
 
-            height: MediaQuery.of(context).size.height,
-            width: MediaQuery.of(context).size.width/5,
-
-            child: Center(
-              child: Text(
-                "Categories",
-                style: TextStyle(
-                    color: Colors.black87,
-                    fontSize: 12,
-                    fontWeight: FontWeight.w500,
-                    fontFamily: 'Trajan Pro'
-                ),
-              ),
-            ),
-          ),
-          trailing: Container(
-            margin: new EdgeInsets.only(bottom: 15),
-            decoration: BoxDecoration(
-              color: Colors.white70,
-              borderRadius: BorderRadius.circular(3),
-              border: Border.all(
-                  color: Colors.white12
-              ),
-            ),
-
-            height: MediaQuery.of(context).size.height,
-            width: MediaQuery.of(context).size.width/1.39,
-
-            child: Center(
-              child: Center(
-                child: Text(
-                  "Area For Search Bar",
-                  style: TextStyle(
-                      color: Colors.black87,
-                      fontSize: 12,
-                      fontWeight: FontWeight.w500,
-                      fontFamily: 'Trajan Pro'
+                      child: Text(
+                        "Stores",
+                        style: TextStyle(
+                            color: Colors.black87,
+                            fontSize: 12,
+                            fontWeight: FontWeight.w500,
+                            fontFamily: 'Trajan Pro'
+                        ),
+                      ),
+                    ),
                   ),
                 ),
               ),
-            ),
-          ),
+
+            Flexible(
+              flex: 5,
+              child: Container(
+                  height: 35,
+                  margin: new EdgeInsets.only(bottom: 1,right: 5,left: 5),
+                  decoration: BoxDecoration(
+                    color: Colors.white70,
+                    borderRadius: BorderRadius.circular(3),
+                    border: Border.all(
+                        color: Colors.white12
+                    ),
+                  ),
+                  child: Center(
+                    child: FlatButton(
+                      onPressed: (){
+                        Navigator.push(context, MaterialPageRoute(builder: (context)=>Categories()));
+                      },
+                      child: Text(
+                        "Search Bar Area",
+                        style: TextStyle(
+                            color: Colors.black87,
+                            fontSize: 12,
+                            fontWeight: FontWeight.w500,
+                            fontFamily: 'Trajan Pro'
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+          ],
         ),
       ),
-      preferredSize: Size.fromHeight(54)
+      preferredSize: Size.fromHeight(47)
   );
 }
+
+
+Widget storesList(){
+  return null;
+}
+

@@ -24,17 +24,13 @@ class HomeWidgetState extends State<HomeWidget>{
         appBar: homeAppBar(context),
         body: Column(
           children: [
-            Column(
-              children: [
-                Expanded(
-                  child: new ListView(
-                    children: [
+            Expanded(
+              child: new ListView(
+                children: [
 
-                    ],
-                  ),
-                ),
-              ],
-            )
+                ],
+              ),
+            ),
           ],
         ),
       ),

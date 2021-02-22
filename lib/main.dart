@@ -1,10 +1,9 @@
-import 'package:d2d/HomePage/Home.dart';
-import 'package:d2d/others/ForgetPassword.dart';
-import 'package:d2d/others/Login.dart';
-import 'package:d2d/others/NewPassword.dart';
-import 'package:d2d/others/SignUp.dart';
-import 'package:d2d/others/oldHome.dart';
+
+import 'package:d2d/Categories/Categories.dart';
+import 'package:d2d/utilities/Constants.dart';
 import 'package:flutter/material.dart';
+
+import 'HomePage/Home.dart';
 
 void main() {
   runApp(MyApp());
@@ -14,7 +13,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'D2D',
+      title: Constants().homeAppBarTitle,
       theme: ThemeData(
         brightness: Brightness.dark,
         primaryColor: Colors.deepOrangeAccent[00],
@@ -36,6 +35,6 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return Home();
+    return Categories();
   }
 }
